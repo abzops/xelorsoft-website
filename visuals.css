@@ -1,0 +1,38 @@
+/* Quiet choreography, with the approved content and section geometry retained. */
+:root{--reveal-ease:cubic-bezier(.22,1,.36,1)}
+.hero-focused{isolation:isolate}
+.hero-focused::before{content:'';position:absolute;inset:2% -3% 8% 40%;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 72% 48%,#ffffff06,transparent 64%);opacity:var(--hero-light,1)}
+.motion-ready .hero-copy{transform:translate3d(0,var(--hero-lift,0px),0)}
+.heading-mask{display:block;overflow:clip;padding-block:.04em .13em;margin-block:-.04em -.13em}
+.heading-inner{display:block;transform-origin:left bottom}
+.hero-focused h1>.heading-mask,.hero-focused h1 .heading-inner,.ai-note h2>.heading-mask,.ai-note h2 .heading-inner{color:inherit}
+.motion-ready .masked-heading.reveal{opacity:1;transform:none;transition:none}
+.motion-ready .masked-heading .heading-inner{transform:translate3d(0,112%,0);transition:transform .85s var(--reveal-ease) var(--line-delay,0ms)}
+.motion-ready .masked-heading.visible .heading-inner{transform:translateZ(0)}
+.motion-ready .reveal:not(.masked-heading){transition:opacity .5s var(--reveal-ease) var(--reveal-delay,0ms),transform .7s var(--reveal-ease) var(--reveal-delay,0ms)}
+.hero-cta{position:relative;isolation:isolate;overflow:hidden}
+.hero-cta::before{content:'';position:absolute;inset:0;z-index:-1;background:#d5d5db;transform:translateX(-102%);transition:transform .45s var(--reveal-ease)}
+.hero-cta:hover::before,.hero-cta:focus-visible::before{transform:translateX(0)}
+.hero-cta:active{background:#c7c7ce}
+.header nav a,.contact-link,footer a{position:relative}
+.header nav a::after,footer a::after{content:'';position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--reveal-ease)}
+.header nav a:hover::after,.header nav a:focus-visible::after,.header nav a[aria-current=location]::after,footer a:hover::after,footer a:focus-visible::after{transform:scaleX(1)}
+.service{position:relative;border-bottom-color:transparent;isolation:isolate}
+.service::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--line);transform-origin:left;transition:transform .85s var(--reveal-ease)}
+.motion-ready .service:not(.visible)::after{transform:scaleX(0)}
+.service::before{content:'';position:absolute;inset:0 -14px;background:#ffffff04;opacity:0;z-index:-1;transition:opacity .25s}
+.service h3{transition:transform .35s var(--reveal-ease),color .25s}
+.service>span{transition:transform .35s var(--reveal-ease)}
+.contact-link{border-bottom-color:transparent}
+.contact-link::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--text);transform:scaleX(.36);transform-origin:left;transition:transform .4s var(--reveal-ease)}
+.contact-link:hover::after,.contact-link:focus-visible::after{transform:scaleX(1)}
+.process-list article{position:relative}
+.process-list article>span{transition:color .3s}
+.questions summary{transition:color .2s}
+.questions details[open] summary{color:var(--text)}
+.questions details[open]>p{animation:answer-in .3s var(--reveal-ease) both}
+.page-progress{position:fixed;top:0;left:0;width:100%;height:1px;z-index:30;background:#a8a8af;transform:scaleX(0);transform-origin:left;pointer-events:none}
+@keyframes answer-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:hover) and (pointer:fine){.service:hover::before,.service:focus-visible::before{opacity:1}.service:hover h3,.service:focus-visible h3{transform:translateX(7px)}.service:hover>span{transform:translate(4px,-4px)}.process-list article:hover>span{color:var(--bg)}}
+@media(max-width:700px){.motion-ready .hero-copy{transform:none}.hero-focused::before{inset:8% -3% 15% 15%}.motion-ready .masked-heading .heading-inner{transition-duration:.7s}.header nav a::after{right:auto;width:22px;bottom:4px}}
+@media(prefers-reduced-motion:reduce){.heading-inner{transform:none!important}.hero-focused::before{display:none}.page-progress{display:none}.service::after{transform:none!important}.questions details[open]>p{animation:none}.contact-link::after{transform:scaleX(1)}.hero-cta::before{display:none}}

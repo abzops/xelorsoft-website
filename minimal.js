@@ -1,3 +1,5 @@
+import { prepareVisualPolish } from './visuals.js?v=1';
+prepareVisualPolish();
 document.querySelector('#year').textContent = new Date().getFullYear();
 const menu = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
@@ -18,6 +20,8 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: .12, rootMargin: '0px 0px -15px 0px' });
 function configure() {
   document.documentElement.classList.toggle('motion-ready', !reduced.matches);
+  // Resolve the masked starting state before revealing above-the-fold content.
+  document.documentElement.getBoundingClientRect();
   reveals.forEach(el => {
     if (reduced.matches || el.getBoundingClientRect().top < innerHeight * .95) el.classList.add('visible');
     else observer.observe(el);

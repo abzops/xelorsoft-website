@@ -11,3 +11,7 @@ Services come from the supplied brand kit and social copybook: custom software, 
 Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero is typography-led: Built around your business, a concise offer and one project enquiry action. The decorative sculpture, pause button and scroll arrow have been removed at the owner's request.
 
 Verified contact destinations: Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No email or phone has been assumed.
+
+Content is frozen at the owner's request. Preserve the copy, links and nine-section source body. Run `node scripts/check-content.mjs` to compare against content-lock.json before publishing visual updates. Change the baseline only for a new explicit content request.
+
+The visual layer adds masked heading entrances, staggered reveals, restrained hero depth, service divider animation, hover states and reading progress. Native scroll, keyboard focus visibility and reduced motion are preserved. There are no new decorative hero objects or controls.
