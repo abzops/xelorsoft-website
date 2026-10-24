@@ -117,3 +117,36 @@ textarea,select { font-size:14px; }
 @media(prefers-reduced-motion:reduce) {
   .motion-ready .story-line { background:none; color:var(--color-foreground); }
 }
+
+/* UI UX Pro Max review: stable layout, restrained reveals and usable hit areas. */
+.header { transition:background .3s,border-color .3s; }
+.header nav a { min-height:44px; display:inline-flex; align-items:center; }
+.header nav a::after { bottom:3px; }
+.menu-button { min-width:68px; min-height:44px; }
+.motion-button { min-height:44px; min-width:44px; }
+.task { grid-template-columns:24px 1fr auto; }
+.task button { width:24px; height:24px; font-size:12px; }
+.footer-top>div a { min-height:44px; }
+.choice-group span { min-height:44px; }
+.motion-ready .scroll-reveal:not(.reveal-heading) {
+  transform:translate3d(0,16px,0);
+  transition:opacity .4s var(--motion-ease) var(--reveal-delay,0ms),transform .55s var(--motion-ease) var(--reveal-delay,0ms);
+}
+.motion-ready .scroll-reveal.is-revealed:not(.reveal-heading) { transform:translateZ(0); }
+.motion-ready .reveal-inner { transition-duration:.75s; }
+.motion-ready .concept { transition:opacity .4s var(--motion-ease),transform .55s var(--motion-ease),clip-path .7s var(--motion-ease); }
+@media(min-width:701px) {
+  .header.is-scrolled { height:95px; }
+  .story-stage { top:95px; height:calc(100svh - 95px); }
+}
+@media(max-width:700px) {
+  textarea,select { font-size:16px; }
+  .header nav a { display:flex; }
+}
+@media(pointer:coarse) {
+  .task { grid-template-columns:44px 1fr auto; min-height:52px; }
+  .task button { width:44px; height:44px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .story-stage { top:auto; height:auto; }
+}

@@ -15,3 +15,9 @@ Motion: native browser scrolling, masked heading entrances, staggered service ro
 Content: describe product discovery, request handling, approvals, human review and enquiry journeys. Do not invent clients, testimonials, savings, performance or guaranteed delivery dates.
 
 Reference: bespoke-web-design guidance supplied by the owner in SKILL.md. Applied to the existing brand and static GitHub Pages site.
+
+## UI UX Pro Max review
+
+Targeted searches: `scroll reveal stagger` in the motion database and `touch target size` in the UX database. Applied the scroll-reveal recommendation of small travel (16px) and faster fade timing (400ms); headline masks retain a longer 750ms cadence. The native implementation and reduced-motion handling remain in place.
+
+Header height now stays constant while scrolling. Fine-pointer demo controls meet 24px, with 44px controls for coarse pointers. Menu, motion and footer link targets are at least 44px high. Mobile form controls use 16px text. These changes follow web guidance, rather than treating native iOS/Android dimensions as universal web requirements.
