@@ -1,6 +1,15 @@
 import { initRibbon } from './ribbon.js?v=20261024-bespoke-1';
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+const menu = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#navigation');
+function closeMenu() { menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('open'); menu.querySelector('span').textContent = '＋'; }
+menu.addEventListener('click', () => {
+  const open = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(open)); navigation.classList.toggle('open', open); menu.querySelector('span').textContent = open ? '−' : '＋';
+});
+navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
 initRibbon(document.querySelector('#ribbon'), document.querySelector('.motion-button'));
 
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');

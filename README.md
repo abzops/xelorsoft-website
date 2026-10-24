@@ -1,11 +1,11 @@
 # Xelorsoft
 
-Minimal studio website for custom software, websites and applied AI.
-
 Live: https://abzops.github.io/xelorsoft-website/
 
-The site has three sections: introduction, services and contact. It uses native JavaScript modules, self-hosted Manrope, an optional WebGL sculpture and subtle scroll reveals. Reduced-motion preferences are supported. No analytics, forms or external runtime dependencies.
+A complete studio website covering the introduction, studio and audience, six services, project directions, working approach, scope and handover, applied AI, FAQs and contact.
 
-Edit index.html, minimal.css and minimal.js. ribbon.js renders the silver sculpture. GitHub Pages publishes the root of main automatically. Use an HTTP static server for local preview.
+The design retains short paragraphs, open layouts, Carbon/Porcelain surfaces and subtle scroll reveals. All examples are project directions; no client case studies, testimonials or results are invented.
 
-Brand artwork belongs to Xelorsoft. Font licenses are included in assets/.
+Edit index.html, minimal.css, expanded.css and minimal.js. ribbon.js renders the silver sculpture. GitHub Pages publishes the root of main. Preview with an HTTP static server.
+
+No analytics, forms or external runtime dependencies. Brand assets belong to Xelorsoft; font licenses are in assets/.

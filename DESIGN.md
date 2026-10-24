@@ -1,9 +1,13 @@
 # Design direction
 
-Minimal and restrained. The owner's latest request takes precedence over earlier expanded design systems.
+The owner requested a more complete explanation of Xelorsoft while retaining a sleek visual style.
 
-Three sections only: introduction, three services and contact. Short copy, open rows, generous whitespace and one consistent Carbon background. No technical labels, numbered process, FAQ, interactive demo panels, brief builder, pinned storytelling or decorative grids.
+Nine sections: hero, studio and audiences, six services, project directions, approach, scope/handover, applied AI, FAQ and contact. The earlier minimal version remains in Git history.
 
-Preserve the approved Xelorsoft logo and Manrope typography. Carbon #171719, Porcelain #F6F6F4, supporting gray #ADADB4. Native scrolling with small one-time reveals. A silver sculpture is the only decorative element and has a pause control, reduced-motion support and a fallback.
+Preserve the approved logo and Manrope. Carbon #171719 and Porcelain #F6F6F4 form the two main surfaces. Supporting text is #ADADB4 on dark and #606068 on light. Use open rows, editorial splits and whitespace. No fake client work, metrics or testimonials.
 
-Contact uses the verified Instagram profile. No invented email, phone, testimonials, clients or performance claims.
+Services come from the supplied brand kit and social copybook: custom software, applied AI/automation, websites, brand identity, social/content and AI-assisted video. Cost, schedule and handover responsibilities remain project-specific.
+
+Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero sculpture has a pause control and fallback.
+
+Verified contact destinations: Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No email or phone has been assumed.
