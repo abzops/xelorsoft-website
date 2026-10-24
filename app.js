@@ -1,4 +1,5 @@
 import { initRibbon } from './ribbon.js';
+import { initScrollExperience } from './scroll.js';
 
 const menu = document.querySelector('.menu-button');
 const nav = document.querySelector('#navigation');
@@ -97,3 +98,4 @@ document.querySelector('#brief-form').addEventListener('submit', async event => 
   }
 });
 initRibbon(document.querySelector('#ribbon'), document.querySelector('.motion-button'));
+initScrollExperience();

@@ -8,6 +8,8 @@ The Xelorsoft website: custom software, applied AI and websites for startups and
 
 Native JavaScript modules, responsive CSS Grid layouts and a custom WebGL sculpture. Fonts and brand assets are served locally. No framework runtime, analytics or third-party scripts.
 
+The scroll experience uses masked heading reveals, staggered section entrances, a pinned typography sequence, hero parallax, reading progress and active navigation. Native scrolling is preserved. Reduced-motion preferences show all content and remove the pinned sequence.
+
 ## Deployment
 
 GitHub Pages serves the root of the `main` branch. Changes pushed to `main` are published automatically. `.nojekyll` preserves the static site without Jekyll processing.
