@@ -8,6 +8,6 @@ Preserve the approved logo and Manrope. Carbon #171719 and Porcelain #F6F6F4 for
 
 Services come from the supplied brand kit and social copybook: custom software, applied AI/automation, websites, brand identity, social/content and AI-assisted video. Cost, schedule and handover responsibilities remain project-specific.
 
-Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero sculpture has a pause control and fallback.
+Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero is typography-led: Built around your business, a concise offer and one project enquiry action. The decorative sculpture, pause button and scroll arrow have been removed at the owner's request.
 
 Verified contact destinations: Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No email or phone has been assumed.
