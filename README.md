@@ -1,23 +1,11 @@
 # Xelorsoft
 
-The Xelorsoft website: custom software, applied AI and websites for startups and small businesses.
+Minimal studio website for custom software, websites and applied AI.
 
-**Live website:** https://abzops.github.io/xelorsoft-website/
+Live: https://abzops.github.io/xelorsoft-website/
 
-## Technology
+The site has three sections: introduction, services and contact. It uses native JavaScript modules, self-hosted Manrope, an optional WebGL sculpture and subtle scroll reveals. Reduced-motion preferences are supported. No analytics, forms or external runtime dependencies.
 
-Native JavaScript modules, responsive CSS Grid layouts and a custom WebGL sculpture. Fonts and brand assets are served locally. No framework runtime, analytics or third-party scripts.
+Edit index.html, minimal.css and minimal.js. ribbon.js renders the silver sculpture. GitHub Pages publishes the root of main automatically. Use an HTTP static server for local preview.
 
-The scroll experience uses masked heading reveals, staggered section entrances, a pinned typography sequence, hero parallax, reading progress and active navigation. Native scrolling is preserved. Reduced-motion preferences show all content and remove the pinned sequence.
-
-## Deployment
-
-GitHub Pages serves the root of the `main` branch. Changes pushed to `main` are published automatically. `.nojekyll` preserves the static site without Jekyll processing.
-
-To preview locally, run a static web server in this directory. JavaScript modules require HTTP rather than opening index.html directly.
-
-The interactive examples are illustrative concepts. The project brief builder copies a message for visitors to send through Instagram; it does not submit or store form entries.
-
-## Brand assets
-
-Xelorsoft brand artwork is included for this website. Manrope and IBM Plex Mono are distributed under their included OFL licenses in `assets/`.
+Brand artwork belongs to Xelorsoft. Font licenses are included in assets/.
