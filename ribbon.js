@@ -12,7 +12,7 @@ export function initRibbon(canvas, control) {
     mat3 rx(float a){float c=cos(a),s=sin(a);return mat3(1.,0.,0.,0.,c,s,0.,-s,c);}
     mat3 ry(float a){float c=cos(a),s=sin(a);return mat3(c,0.,-s,0.,1.,0.,s,0.,c);}
     mat3 rz(float a){float c=cos(a),s=sin(a);return mat3(c,s,0.,-s,c,0.,0.,0.,1.);}
-    void main(){mat3 r=rz(-.55+uPointer.x*.07)*rx(.75+uPointer.y*.12)*ry(.38+sin(uTime*.18)*.16);vec3 p=r*aPosition;vNormal=r*aNormal;vPosition=p;vUV=aUV;float d=4.8-p.z;gl_Position=vec4(p.x*2.7/uAspect,p.y*2.7,p.z*.15,d);}`;
+    void main(){mat3 r=rz(-.55+uPointer.x*.07)*rx(.75+uPointer.y*.12)*ry(.38+sin(uTime*.18)*.16);vec3 p=r*aPosition;vNormal=r*aNormal;vPosition=p;vUV=aUV;float d=4.8-p.z;float scale=2.7*min(1.,uAspect);gl_Position=vec4(p.x*scale/uAspect,p.y*scale,p.z*.15,d);}`;
   const fragment = `precision mediump float;varying vec3 vNormal;varying vec3 vPosition;varying vec2 vUV;
     void main(){vec3 n=normalize(vNormal);if(!gl_FrontFacing)n=-n;vec3 view=normalize(vec3(0.,0.,4.8)-vPosition);vec3 refl=reflect(-view,n);
       float light=smoothstep(.1,.7,refl.y*.6+refl.x*.75);float strip=pow(max(0.,1.-abs(refl.y-.42)),28.);float rim=pow(1.-abs(dot(n,view)),2.5);

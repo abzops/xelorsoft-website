@@ -1,4 +1,4 @@
-import { initRibbon } from './ribbon.js';
+import { initRibbon } from './ribbon.js?v=20261024-bespoke-1';
 import { initScrollExperience } from './scroll.js';
 
 const menu = document.querySelector('.menu-button');
