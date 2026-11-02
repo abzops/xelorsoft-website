@@ -18,6 +18,7 @@ Content is frozen at the owner's request. Preserve the copy, links and nine-sect
 
 The owner asked for a scroll-based rebuild with no content change. The page now uses the scroll-craft engine in a typographic-poster grammar: type is the imagery, no photography or decorative objects are added, and every scroll effect is presentation only. See `docs/scroll-brief.md` for the plan.
 
+- Hero brand mark: at the owner's request (Nov 2026) the hero now carries the XS badge as a dark metal slab with real depth: fourteen stacked planes form its thickness, light shows through the cut-out letters, a sheen and tilt follow the pointer (an idle drift on touch), and it turns away and fades at its own rate on scroll. It is decorative, aria-hidden, uses only the approved logo shape (`assets/xs-badge.svg`, `assets/xs-glyph.svg`) and holds a static pose with reduced motion. This replaces the earlier no-decorative-objects rule for the hero only.
 - Hero (pinned): three type planes. "Built around" recedes, "your business." comes forward and brightens, the offer and action lift away.
 - Services (pinned index): the wheel steps through the six services, one description at a time. Tabbing to a service scrolls to it.
 - Approach (horizontal pan): the four steps travel sideways with oversized numerals.
