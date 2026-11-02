@@ -14,4 +14,15 @@ Verified contact destinations: Instagram /xelorsoft, LinkedIn /company/xelorsoft
 
 Content is frozen at the owner's request. Preserve the copy, links and nine-section source body. Run `node scripts/check-content.mjs` to compare against content-lock.json before publishing visual updates. Change the baseline only for a new explicit content request.
 
-The visual layer adds masked heading entrances, staggered reveals, restrained hero depth, service divider animation, hover states and reading progress. Native scroll, keyboard focus visibility and reduced motion are preserved. There are no new decorative hero objects or controls.
+## Scroll build
+
+The owner asked for a scroll-based rebuild with no content change. The page now uses the scroll-craft engine in a typographic-poster grammar: type is the imagery, no photography or decorative objects are added, and every scroll effect is presentation only. See `docs/scroll-brief.md` for the plan.
+
+- Hero (pinned): three type planes. "Built around" recedes, "your business." comes forward and brightens, the offer and action lift away.
+- Services (pinned index): the wheel steps through the six services, one description at a time. Tabbing to a service scrolls to it.
+- Approach (horizontal pan): the four steps travel sideways with oversized numerals.
+- AI note (pinned, the peak): "AI where it helps." settles from large scale, then "People where it matters." is written across.
+- Contact and footer invert to Porcelain as the closing ground.
+- Signature: one full stop travels the page, landing as the period of each heading in turn, and finally as the point of the closing question mark.
+
+Native scrolling throughout. With reduced motion requested, nothing pins or pans and the page reads as a static document. Without JavaScript all content is visible.
