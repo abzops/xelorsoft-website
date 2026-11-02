@@ -276,8 +276,13 @@ html:not(.motion) .hero-stage{position:relative}
 .sc-grain{opacity:.035}
 @media(max-width:950px){.mark{width:clamp(220px,40vw,360px)}}
 @media(max-width:700px){
-  .mark{top:clamp(96px,calc(20svh - 36px),190px);right:5vw;width:min(60vw,33svh,300px)}
-  .hero-stage::before{inset:0 -20% 40% 10%}
+  /* Phone hero: the mark is centred and sized to the real space between the
+     header and the headline (site.js measures it), tucking just behind the
+     first line so the two read as one composition. */
+  .mark{top:var(--mark-top,104px);left:0;right:0;margin-inline:auto;width:var(--mark-size,min(72vw,300px))}
+  .mark-tilt{--ry:-10deg;--rx:7deg}
+  .motion .hero .hero-line--b{transform:translate3d(0,calc(var(--sc-p,0) * -2vh),0) scale(calc(1 + var(--sc-p,0) * .035))}
+  .hero-stage::before{inset:0 -40% 30% -40%;background:radial-gradient(closest-side at 50% calc(var(--mark-mid,240px)),#ffffff17,#ffffff06 55%,transparent 80%)}
 }
 @media(prefers-reduced-motion:reduce){.mark,.mark-glow{animation:none}}
 
