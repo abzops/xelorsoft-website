@@ -155,7 +155,7 @@
   // A heading is ready for its full stop once it is actually legible.
   function ready(s) {
     var h = s.closest('h1,h2,h3');
-    if (h.classList.contains('split')) return h.classList.contains('on') && performance.now() - (h.__onAt || 0) > 450;
+    if (h.classList.contains('split')) return h.classList.contains('on') && performance.now() - (h.__onAt || 0) > 200;
     if (h.id === 'hero-title') return performance.now() - t0 > 1250;
     if (h.id === 'ai-title') return progressOf(h.closest('section')) > 0.6;
     var wipe = s.closest('[data-sc-reveal]');
@@ -194,7 +194,7 @@
       if (next.textContent === '.') next.classList.add('is-waiting');
       var p0 = place(next);
       if (!from) from = { x: p0.x, y: Math.max(-40, p0.y - innerHeight * 0.45), w: p0.w, h: p0.h };
-      state.flight = { from: from, start: now, dur: 620 };
+      state.flight = { from: from, start: now, dur: 560 };
       dot.style.backgroundColor = p0.color;
     }
     if (!state.target) { if (state.shown) { dot.style.opacity = '0'; state.shown = false; } return; }
@@ -237,12 +237,27 @@
     mark.style.opacity = (1 - Math.max(0, p - 0.25) * 1.25).toFixed(3);
   }
 
+  /* ---- floating header: back on scroll-up, away on scroll-down ---------- */
+  var header = $('.header'), lastY = scrollY, dir = 0;
+  function paintHeader() {
+    var y = scrollY, past = y > innerHeight * 0.9;
+    if (Math.abs(y - lastY) > 4) { dir = y > lastY ? 1 : -1; lastY = y; }
+    var open = menu.getAttribute('aria-expanded') === 'true';
+    if (past && !header.classList.contains('is-floating')) {
+      header.classList.add('is-floating');
+      requestAnimationFrame(function () { requestAnimationFrame(function () { header.classList.add('can-slide'); }); });
+    } else if (!past) header.classList.remove('is-floating', 'can-slide');
+    header.classList.toggle('is-shown', past && (dir < 0 || open || header.contains(document.activeElement)));
+    if (!past && header.classList.contains('is-shown')) header.classList.remove('is-shown');
+  }
+
   /* ---- one loop -------------------------------------------------------- */
   var fontsReady = false;
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { fontsReady = true; glyphCache = {}; });
   function frame(now) {
     paintServices();
     paintNav();
+    paintHeader();
     paintMark(now);
     if (dot && fontsReady) paintDot(now);
     requestAnimationFrame(frame);
