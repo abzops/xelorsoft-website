@@ -216,12 +216,34 @@
     draw(p.x, p.y, p.w, p.h, 0, 0);
   }
 
+  /* ---- hero brand mark: tilts toward the pointer, drifts when idle, and
+     turns away at its own rate as the hero scrolls ------------------------ */
+  var hero = $('.hero'), mark = $('.mark'), tilt = $('.mark-tilt');
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var aim = { x: 0, y: 0, seen: false }, cur = { x: 0, y: 0 };
+  if (mark && motion && fine) addEventListener('pointermove', function (e) {
+    aim.x = e.clientX / innerWidth - 0.5; aim.y = e.clientY / innerHeight - 0.5; aim.seen = true;
+  }, { passive: true });
+  function paintMark(now) {
+    if (!mark || !motion) return;
+    if (hero.getBoundingClientRect().bottom < 0) return;
+    var t = now / 1000, p = progressOf(hero);
+    var tx = aim.seen ? aim.x : Math.sin(t * 0.33) * 0.22, ty = aim.seen ? aim.y : Math.cos(t * 0.27) * 0.16;
+    cur.x += (tx - cur.x) * 0.055; cur.y += (ty - cur.y) * 0.055;
+    tilt.style.setProperty('--ry', (-22 + cur.x * 26 + p * 30).toFixed(2) + 'deg');
+    tilt.style.setProperty('--rx', (9 - cur.y * 18 - p * 8).toFixed(2) + 'deg');
+    tilt.style.setProperty('--sx', (32 + cur.x * 70 + p * 50).toFixed(1) + '%');
+    mark.style.transform = 'translate3d(0,' + (-p * 14).toFixed(2) + 'vh,0) scale(' + (1 - p * 0.12).toFixed(3) + ')';
+    mark.style.opacity = (1 - Math.max(0, p - 0.25) * 1.25).toFixed(3);
+  }
+
   /* ---- one loop -------------------------------------------------------- */
   var fontsReady = false;
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { fontsReady = true; glyphCache = {}; });
   function frame(now) {
     paintServices();
     paintNav();
+    paintMark(now);
     if (dot && fontsReady) paintDot(now);
     requestAnimationFrame(frame);
   }
