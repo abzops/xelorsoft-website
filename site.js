@@ -224,14 +224,36 @@
   if (mark && motion && fine) addEventListener('pointermove', function (e) {
     aim.x = e.clientX / innerWidth - 0.5; aim.y = e.clientY / innerHeight - 0.5; aim.seen = true;
   }, { passive: true });
+  // Phone layout for the mark: centre it in the space between the header and
+  // the headline, sized to that space, overlapping the first line slightly.
+  // offsetTop ignores the scroll transforms, so this is stable mid-scroll.
+  var phoneMQ = matchMedia('(max-width: 700px)');
+  function layoutMark() {
+    if (!mark) return;
+    if (!phoneMQ.matches) { ['--mark-top', '--mark-size'].forEach(function (k) { mark.style.removeProperty(k); }); return; }
+    var copy = $('.hero-copy'), h1 = $('#hero-title');
+    var top0 = $('.header').offsetHeight || 88;
+    var h1Top = copy.offsetTop + h1.offsetTop;
+    var free = h1Top - top0;
+    var size = Math.max(150, Math.min(innerWidth * 0.8, 360, free * 0.92 + 36));
+    var top = top0 + Math.max(0, (free - size) / 2) + Math.min(28, size * 0.08);
+    mark.style.setProperty('--mark-top', top.toFixed(1) + 'px');
+    mark.style.setProperty('--mark-size', size.toFixed(1) + 'px');
+    $('.hero-stage').style.setProperty('--mark-mid', (top + size / 2).toFixed(1) + 'px');
+  }
+  layoutMark();
+  addEventListener('resize', layoutMark);
+  if (document.fonts) document.fonts.ready.then(layoutMark);
+
   function paintMark(now) {
     if (!mark || !motion) return;
     if (hero.getBoundingClientRect().bottom < 0) return;
     var t = now / 1000, p = progressOf(hero);
     var tx = aim.seen ? aim.x : Math.sin(t * 0.33) * 0.22, ty = aim.seen ? aim.y : Math.cos(t * 0.27) * 0.16;
     cur.x += (tx - cur.x) * 0.055; cur.y += (ty - cur.y) * 0.055;
-    tilt.style.setProperty('--ry', (-22 + cur.x * 26 + p * 30).toFixed(2) + 'deg');
-    tilt.style.setProperty('--rx', (9 - cur.y * 18 - p * 8).toFixed(2) + 'deg');
+    var phone = phoneMQ.matches, baseY = phone ? -10 : -22, baseX = phone ? 7 : 9;
+    tilt.style.setProperty('--ry', (baseY + cur.x * (phone ? 18 : 26) + p * 30).toFixed(2) + 'deg');
+    tilt.style.setProperty('--rx', (baseX - cur.y * (phone ? 12 : 18) - p * 8).toFixed(2) + 'deg');
     tilt.style.setProperty('--sx', (32 + cur.x * 70 + p * 50).toFixed(1) + '%');
     mark.style.transform = 'translate3d(0,' + (-p * 14).toFixed(2) + 'vh,0) scale(' + (1 - p * 0.12).toFixed(3) + ')';
     mark.style.opacity = (1 - Math.max(0, p - 0.25) * 1.25).toFixed(3);
