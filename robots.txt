@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /lander/
+
+Sitemap: https://xelorsoft.com/sitemap.xml

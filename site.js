@@ -36,6 +36,14 @@
     $$('[data-sc-reveal]').forEach(function (el) { el.removeAttribute('data-sc-reveal'); });
   }
 
+  /* ---- phones: no long pinned stretches ------------------------------
+     On a phone the horizontal pan and the pinned AI line turn into long
+     runs of near-empty screen. They read better as normal flow there. */
+  if (motion && matchMedia('(max-width: 700px)').matches) {
+    $$('.approach,.ai-note').forEach(function (s) { s.removeAttribute('data-sc-act'); s.removeAttribute('data-sc-span'); });
+    $$('.approach [data-sc-pan]').forEach(function (el) { el.removeAttribute('data-sc-pan'); });
+  }
+
   /* ---- masked headings: each line rises from behind its own edge --------- */
   var splits = $$('h2.split, h3.split');
   splits.forEach(function (h) {
@@ -65,25 +73,45 @@
   if (window.ScrollCraft) ScrollCraft.mount(document.body);
   var progressOf = function (el) { return parseFloat(el.style.getPropertyValue('--sc-p')) || 0; };
 
-  /* ---- services index: the wheel steps through the six services --------- */
-  var services = $('.services'), items = $$('.service', services);
-  var activeService = -1;
-  function paintServices() {
-    var i = motion ? clamp(Math.floor(progressOf(services) * items.length), 0, items.length - 1) : -1;
-    if (i === activeService) return;
-    activeService = i;
-    items.forEach(function (el, k) { el.classList.toggle('is-active', k === i); });
-  }
-  if (motion) {
-    // A keyboard visitor lands on the service they tabbed to.
-    items.forEach(function (el, k) {
-      el.addEventListener('focus', function () {
-        var travel = services.offsetHeight - innerHeight;
-        var top = services.getBoundingClientRect().top + scrollY + travel * (k + 0.5) / items.length;
-        if (Math.abs(top - scrollY) > 2) scrollTo({ top: top, behavior: 'instant' });
-      });
+  /* ---- voice-note bars stagger ---------------------------------------- */
+  $$('.bubble.voice i').forEach(function (b, k) { b.style.setProperty('--n', k); });
+
+  /* ---- enquiry form: topics from links, validation, mailto ------------- */
+  var form = $('#enquiry'), toast = $('.toast'), toastT;
+  function say(msg) { toast.textContent = msg; toast.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function () { toast.classList.remove('on'); }, 2600); }
+  $$('[data-topic]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = a.getAttribute('data-topic');
+      $$('input[name=topic]', form).forEach(function (c) { if (c.value === t) c.checked = true; });
     });
-  }
+  });
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements, bad = [];
+    ['name', 'reach', 'message'].forEach(function (n) {
+      var ok = f[n].value.trim().length > 0; f[n].setAttribute('aria-invalid', String(!ok)); if (!ok) bad.push(f[n]);
+    });
+    var err = $('.form-error', form); err.hidden = !bad.length;
+    if (bad.length) { bad[0].focus(); return; }
+    var topics = $$('input[name=topic]:checked', form).map(function (c) { return c.value; });
+    var subject = 'Project enquiry' + (topics.length ? ' — ' + topics.join(', ') : '') + ' — ' + f.name.value.trim();
+    var body = 'Name: ' + f.name.value.trim() +
+      (f.company.value.trim() ? '\nBusiness: ' + f.company.value.trim() : '') +
+      '\nContact: ' + f.reach.value.trim() +
+      (topics.length ? '\nInterested in: ' + topics.join(', ') : '') +
+      '\n\n' + f.message.value.trim() + '\n\n— Sent from xelorsoft.com';
+    location.href = 'mailto:info@xelorsoft.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    say('Opening your email app…');
+  });
+  if (form) $$('input,textarea', form).forEach(function (el) { el.addEventListener('input', function () { if (el.value.trim()) el.removeAttribute('aria-invalid'); }); });
+
+  /* ---- copy email ------------------------------------------------------ */
+  $$('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-copy');
+      (navigator.clipboard ? navigator.clipboard.writeText(v) : Promise.reject()).then(function () { say('Email copied'); b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1800); }, function () { say(v); });
+    });
+  });
 
   /* ---- where am I: the nav underlines the section in view --------------- */
   var navLinks = $$('#navigation a');
@@ -157,7 +185,7 @@
     var h = s.closest('h1,h2,h3');
     if (h.classList.contains('split')) return h.classList.contains('on') && performance.now() - (h.__onAt || 0) > 200;
     if (h.id === 'hero-title') return performance.now() - t0 > 1250;
-    if (h.id === 'ai-title') return progressOf(h.closest('section')) > 0.6;
+    if (h.id === 'ai-title') { var sec = h.closest('section'); return !sec.hasAttribute('data-sc-act') || progressOf(sec) > 0.45; }
     var wipe = s.closest('[data-sc-reveal]');
     if (wipe) { var n = (wipe.style.clipPath.match(/[\d.]+%/) || ['100'])[0]; return parseFloat(n) < 1; }
     return true;
@@ -231,12 +259,12 @@
   function layoutMark() {
     if (!mark) return;
     if (!phoneMQ.matches) { ['--mark-top', '--mark-size'].forEach(function (k) { mark.style.removeProperty(k); }); return; }
-    var copy = $('.hero-copy'), h1 = $('#hero-title');
+    var copy = $('.hero-copy'), h1 = $('.hero-eyebrow') || $('#hero-title');
     var top0 = $('.header').offsetHeight || 88;
     var h1Top = copy.offsetTop + h1.offsetTop;
     var free = h1Top - top0;
-    var size = Math.max(150, Math.min(innerWidth * 0.8, 360, free * 0.92 + 36));
-    var top = top0 + Math.max(0, (free - size) / 2) + Math.min(28, size * 0.08);
+    var size = Math.max(150, Math.min(innerWidth * 0.78, 340, free * 0.8));
+    var top = top0 + Math.max(0, (free - size) / 2) - 10;
     mark.style.setProperty('--mark-top', top.toFixed(1) + 'px');
     mark.style.setProperty('--mark-size', size.toFixed(1) + 'px');
     $('.hero-stage').style.setProperty('--mark-mid', (top + size / 2).toFixed(1) + 'px');
@@ -277,7 +305,6 @@
   var fontsReady = false;
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { fontsReady = true; glyphCache = {}; });
   function frame(now) {
-    paintServices();
     paintNav();
     paintHeader();
     paintMark(now);

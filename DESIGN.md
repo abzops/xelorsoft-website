@@ -10,9 +10,9 @@ Services come from the supplied brand kit and social copybook: custom software, 
 
 Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero is typography-led: Built around your business, a concise offer and one project enquiry action. The decorative sculpture, pause button and scroll arrow have been removed at the owner's request.
 
-Verified contact destinations: Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No email or phone has been assumed.
+Contact destinations: info@xelorsoft.com (enquiries), support@xelorsoft.com (product support), privacy@xelorsoft.com (privacy and data deletion), Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No phone number is published yet.
 
-Content is frozen at the owner's request. Preserve the copy, links and nine-section source body. Run `node scripts/check-content.mjs` to compare against content-lock.json before publishing visual updates. Change the baseline only for a new explicit content request.
+Content is frozen at the owner's request. The Nov 2026 premium rebuild (owner-approved) added a Products section (XS Connect, XS Gym), an enquiry form that opens the visitor's email app, a full footer, privacy/terms/404 pages, share image, icons, sitemap and structured data. Preserve the copy, links and nine-section source body. Run `node scripts/check-content.mjs` to compare against content-lock.json before publishing visual updates. Change the baseline only for a new explicit content request.
 
 ## Scroll build
 
@@ -27,3 +27,9 @@ The owner asked for a scroll-based rebuild with no content change. The page now 
 - Signature: one full stop travels the page, landing as the period of each heading in turn, and finally as the point of the closing question mark.
 
 Native scrolling throughout. With reduced motion requested, nothing pins or pans and the page reads as a static document. Without JavaScript all content is visible.
+
+## Nov 2026 premium rebuild
+- Services became a static premium list (the pinned wheel took ~4 screens of scroll).
+- On phones (≤700px) the approach pan and pinned AI line are converted to normal flow by site.js before the engine mounts, so there are no long empty stretches.
+- Products section shows XS Connect and XS Gym with illustrative, aria-hidden UI. These are our own products; no client work, metrics or testimonials are invented.
+- Contact: email first, plus an enquiry form that composes an email to info@ (no backend, no third-party form service).
