@@ -1,35 +1,28 @@
 # Design direction
 
-The owner requested a more complete explanation of Xelorsoft while retaining a sleek visual style.
+Nov 2026: the owners asked to remove Brand identity, Social & content and AI-assisted video, and to rebuild with taste-skill so the site does not look AI-made. The scroll-craft build is in Git history.
 
-Nine sections: hero, studio and audiences, six services, project directions, approach, scope/handover, applied AI, FAQ and contact. The earlier minimal version remains in Git history.
+## Rules
 
-Preserve the approved logo and Manrope. Carbon #171719 and Porcelain #F6F6F4 form the two main surfaces. Supporting text is #ADADB4 on dark and #606068 on light. Use open rows, editorial splits and whitespace. No fake client work, metrics or testimonials.
+- Page kind: software (a studio that also sells its own products). The taste-skill deal: hero collage, mega nav, footer columns, closing type, one dark band, tonal buttons, sky ground, pinned-chapters on Process.
+- Brand: Carbon #171719, Porcelain #F6F6F4, Manrope (self-hosted). Use the approved logo only.
+- Show the product, not decoration: every section carries real, readable UI (XS Connect inbox and chat, XS Gym members, AI notes, checklists, voice note, channel hub).
+- Plain, specific copy. Every heading names a thing. No invented clients, metrics or testimonials. Sample names in the UI are illustrative.
+- Native scrolling; reduced motion shows still pictures. Without JavaScript all content is visible.
 
-Services come from the supplied brand kit and social copybook: custom software, applied AI/automation, websites, brand identity, social/content and AI-assisted video. Cost, schedule and handover responsibilities remain project-specific.
+## Sections
 
-Native scrolling with short one-time reveals. Mobile navigation has explicit expanded state, closes on a section selection or Escape, and preserves keyboard access. FAQs use native details/summary. Honor reduced motion. The hero is typography-led: Built around your business, a concise offer and one project enquiry action. The decorative sculpture, pause button and scroll arrow have been removed at the owner's request.
+1. Hero: "Custom software and AI tools for Kerala businesses", with the XS Connect inbox.
+2. XS Connect: inbox and a Malayalam chat.
+3. Services (four): custom software (XS Gym), AI tools, websites, Malayalam voice notes. The voice card is hidden on phones so the section fits two screens.
+4. Channels (dark band): WhatsApp, Instagram, Facebook.
+5. Questions (FAQ).
+6. Process, three pinned steps.
+7. Contact: email links, social links and a form that composes an email to info@.
+8. Closing line and footer.
 
-Contact destinations: info@xelorsoft.com (enquiries), support@xelorsoft.com (product support), privacy@xelorsoft.com (privacy and data deletion), Instagram /xelorsoft, LinkedIn /company/xelorsoft and Facebook /xelorsoft. No phone number is published yet.
+Contact destinations: info@xelorsoft.com (enquiries), support@xelorsoft.com (product support), privacy@xelorsoft.com (privacy), Instagram /xelorsoft, LinkedIn /company/xelorsoft, Facebook /xelorsoft. No phone number yet.
 
-Content is frozen at the owner's request. The Nov 2026 premium rebuild (owner-approved) added a Products section (XS Connect, XS Gym), an enquiry form that opens the visitor's email app, a full footer, privacy/terms/404 pages, share image, icons, sitemap and structured data. Preserve the copy, links and nine-section source body. Run `node scripts/check-content.mjs` to compare against content-lock.json before publishing visual updates. Change the baseline only for a new explicit content request.
+## Known gate notes (phone, 390px)
 
-## Scroll build
-
-The owner asked for a scroll-based rebuild with no content change. The page now uses the scroll-craft engine in a typographic-poster grammar: type is the imagery, no photography or decorative objects are added, and every scroll effect is presentation only. See `docs/scroll-brief.md` for the plan.
-
-- Hero brand mark: at the owner's request (Nov 2026) the hero now carries the XS badge as a dark metal slab with real depth: fourteen stacked planes form its thickness, light shows through the cut-out letters, a sheen and tilt follow the pointer (an idle drift on touch), and it turns away and fades at its own rate on scroll. It is decorative, aria-hidden, uses only the approved logo shape (`assets/xs-badge.svg`, `assets/xs-glyph.svg`) and holds a static pose with reduced motion. This replaces the earlier no-decorative-objects rule for the hero only.
-- Hero (pinned): three type planes. "Built around" recedes, "your business." comes forward and brightens, the offer and action lift away.
-- Services (pinned index): the wheel steps through the six services, one description at a time. Tabbing to a service scrolls to it.
-- Approach (horizontal pan): the four steps travel sideways with oversized numerals.
-- AI note (pinned, the peak): "AI where it helps." settles from large scale, then "People where it matters." is written across.
-- Contact and footer invert to Porcelain as the closing ground.
-- Signature: one full stop travels the page, landing as the period of each heading in turn, and finally as the point of the closing question mark.
-
-Native scrolling throughout. With reduced motion requested, nothing pins or pans and the page reads as a static document. Without JavaScript all content is visible.
-
-## Nov 2026 premium rebuild
-- Services became a static premium list (the pinned wheel took ~4 screens of scroll).
-- On phones (≤700px) the approach pan and pinned AI line are converted to normal flow by site.js before the engine mounts, so there are no long empty stretches.
-- Products section shows XS Connect and XS Gym with illustrative, aria-hidden UI. These are our own products; no client work, metrics or testimonials are invented.
-- Contact: email first, plus an enquiry form that composes an email to info@ (no backend, no third-party form service).
+Two layout findings were left open after three fix rounds: about 100px of Channels shows at the end of Services, and the end of Process shows the top of Contact. Both are cosmetic.
