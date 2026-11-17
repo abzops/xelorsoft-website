@@ -1,6 +1,6 @@
 # Xelorsoft
 
-Live: https://abzops.github.io/xelorsoft-website/
+Live: https://xelorsoft.com/ (Cloudflare Workers; GitHub Pages copy at https://abzops.github.io/xelorsoft-website/)
 
 A complete studio website covering the introduction, studio and audience, six services, project directions, working approach, scope and handover, applied AI, FAQs and contact.
 
