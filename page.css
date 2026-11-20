@@ -72,3 +72,31 @@ a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
 .more{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
 .more a{display:block;padding:20px;border:1px solid var(--line-light);border-radius:16px;text-decoration:none}
 .more a:hover{border-color:var(--carbon)}.more b{display:block;font-size:17px;margin-bottom:4px}.more span{font-size:14px;color:var(--soft-light)}
+
+/* Blog (/blog/ and /blog/<post>/) */
+.post{max-width:720px}
+.post h1{font-size:clamp(36px,5vw,58px)}
+.byline{font-size:14px;color:var(--soft-light);margin:18px 0 36px}
+.post h2{font-size:clamp(22px,2.6vw,28px);margin:52px 0 12px;padding-top:26px}
+.post h3{font-size:17px;margin:28px 0 6px}
+.post p,.post li{font-size:17px;line-height:1.85}
+.post a{font-weight:600;text-underline-offset:3px}
+.post blockquote{margin:10px 0 22px;padding:16px 20px;border-radius:14px;background:#ececea;font-size:16px}
+.post blockquote p{margin:0;color:var(--carbon);font-size:16px}
+.post code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#ececea;border-radius:6px;padding:1px 6px;font-size:.9em}
+.post-cta{margin:56px 0 0;padding:26px;border-radius:18px;background:var(--carbon);color:var(--porcelain);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.post-cta p{margin:0;color:var(--soft-dark);font-size:16px}.post-cta b{color:var(--porcelain)}
+.post-cta .btn{background:var(--porcelain);color:var(--carbon)}.post-cta .btn:hover{background:#d8d8de}
+.posts{list-style:none;padding:0;margin:40px 0 0}
+.posts li{margin:0;border-top:1px solid var(--line-light)}
+.posts a{display:block;padding:26px 0;text-decoration:none;transition:transform .3s var(--ease)}
+.posts a:hover{transform:translateY(-2px)}.posts a:hover h2{text-decoration:underline;text-underline-offset:4px}
+.posts h2{font-size:clamp(21px,2.4vw,26px);margin:0 0 8px;padding:0;border:0}
+.posts p{margin:0 0 8px}.posts span{font-size:13px;color:var(--soft-light)}
+.prod .posts{padding-left:0}
+@media (max-width:760px){
+  .bar .wrap{height:auto;flex-wrap:wrap;padding:14px 0 6px;row-gap:2px}
+  .bar nav.links{width:100%;flex-wrap:nowrap;overflow-x:auto;gap:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bar nav.links::-webkit-scrollbar{display:none}
+  .bar nav.links a{white-space:nowrap;flex:none}
+}

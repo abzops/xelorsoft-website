@@ -15,6 +15,14 @@
 - [AI and automation](https://xelorsoft.com/#ai): assistants that handle repeat work such as replies, reminders and data entry.
 - [Websites](https://xelorsoft.com/#web): fast business websites with contact forms, email and search listing set up.
 
+## Guides
+
+- [What to check before you buy gym software](https://xelorsoft.com/blog/choosing-gym-software/)
+- [How to send gym fee reminders on WhatsApp](https://xelorsoft.com/blog/gym-fee-reminders-whatsapp/)
+- [Does your salon need GST? A guide for Kerala salon owners](https://xelorsoft.com/blog/salon-gst-kerala/)
+- [WhatsApp Business app or WhatsApp API](https://xelorsoft.com/blog/whatsapp-business-app-vs-api/)
+- [How to bill by the hour at a snooker or PS5 centre](https://xelorsoft.com/blog/snooker-ps5-centre-billing/)
+
 ## Company
 
 - [Home](https://xelorsoft.com/): what we build and how a project runs.
