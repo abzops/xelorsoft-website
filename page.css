@@ -46,3 +46,29 @@ a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
 .btn{display:inline-flex;align-items:center;gap:30px;min-height:54px;padding:12px 22px;border-radius:999px;background:var(--porcelain);color:var(--carbon);font-size:14px;font-weight:600;text-decoration:none;transition:background .3s}
 .btn:hover{background:#d8d8de}
 .text-link{font-size:14px;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+/* Product pages (/gym-management-software/, /salon-software/, /whatsapp-crm/) */
+.bar nav.links{display:flex;gap:22px;flex-wrap:wrap}
+.bar nav.links a{font-size:14px;color:var(--soft-dark);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.bar nav.links a:hover,.bar nav.links a[aria-current]{color:var(--porcelain)}
+.crumbs{font-size:13px;color:var(--soft-light);padding-top:28px}
+.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.prod{max-width:860px;padding:clamp(40px,6vw,80px) 0 90px}
+.prod h1{font-size:clamp(40px,5.6vw,68px);font-weight:500;letter-spacing:-.05em;line-height:1.06;margin:0}
+.prod .lead{font-size:clamp(18px,2vw,21px);line-height:1.65;letter-spacing:-.01em;margin:22px 0 30px;color:#2a2a30}
+.prod h2{font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:-.035em;line-height:1.2;margin:64px 0 14px;padding-top:30px;border-top:1px solid var(--line-light)}
+.prod h3{font-size:18px;font-weight:600;letter-spacing:-.02em;margin:26px 0 6px}
+.prod p,.prod li{color:#3d3d44;font-size:16px;line-height:1.8}
+.prod p{margin:0 0 14px}.prod ul,.prod ol{padding-left:20px;margin:0 0 14px}.prod li{margin-bottom:8px}
+.prod .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 32px}
+.prod .cta{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin:8px 0 0}
+.prod .btn{background:var(--carbon);color:var(--porcelain)}.prod .btn:hover{background:#34343a}
+.prod .note{font-size:14px;color:var(--soft-light)}
+.prod details{border-top:1px solid var(--line-light);padding:14px 0}
+.prod summary{cursor:pointer;font-weight:600;font-size:17px;letter-spacing:-.015em;list-style:none;min-height:32px}
+.prod summary::-webkit-details-marker{display:none}
+.prod summary::after{content:'+';float:right;font-weight:400}.prod details[open] summary::after{content:'–'}
+.prod details p{margin:10px 0 0}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.more a{display:block;padding:20px;border:1px solid var(--line-light);border-radius:16px;text-decoration:none}
+.more a:hover{border-color:var(--carbon)}.more b{display:block;font-size:17px;margin-bottom:4px}.more span{font-size:14px;color:var(--soft-light)}
