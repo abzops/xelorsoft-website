@@ -1,0 +1,22 @@
+# Xelorsoft
+
+> Xelorsoft is a software studio in Kerala, India. It builds custom software, AI tools and business websites for startups and small businesses, and makes its own products for local businesses: XS Gym, XS Salon and XS Connect. All copy and support are in English; the products also speak Malayalam.
+
+## Products
+
+- [XS Gym](https://gym.xelorsoft.com/): gym management software for members, memberships, payments, expenses, enquiries, WhatsApp reminders and an English/Malayalam voice assistant.
+- [XS Salon](https://salon.xelorsoft.com/): salon software with a stylist calendar, GST billing, clients, services, inventory, reports and an online booking link.
+- [XS Connect](https://xsconnect.xelorsoft.com/): one inbox for WhatsApp, Instagram and Facebook messages, with AI replies in English or Malayalam, leads and orders.
+
+## Services
+
+- [Custom software](https://xelorsoft.com/#services): web and mobile apps for one business workflow or a whole operation.
+- [AI and automation](https://xelorsoft.com/#ai): assistants that handle repeat work such as replies, reminders and data entry.
+- [Websites](https://xelorsoft.com/#web): fast business websites with contact forms, email and search listing set up.
+
+## Company
+
+- [Home](https://xelorsoft.com/): what we build and how a project runs.
+- [Privacy policy](https://xelorsoft.com/privacy)
+- [Terms](https://xelorsoft.com/terms)
+- Contact: info@xelorsoft.com. Founders: Abhinand and Siva Sankar.
