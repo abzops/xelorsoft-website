@@ -244,15 +244,17 @@ main > :is(section, .section).g2 > :is(.wrap, .container) > :is(.group, .fill) {
   main > :is(section, .section).g2 > .wrap > .group > .grid:last-child { align-self: stretch; flex: 1 1 auto; min-height: 0; }
 }
 .group > .fill { flex: 1 1 0; min-height: 0; }
-@media (min-width: 640px) and (max-width: 1279px) {
-  main > :is(section, .section):not(.hero, .section--hero), footer.closing {
+/* scroll-pinned sections ([data-moment], e.g. pinned-chapters on #process) keep their exact screen
+   heights: their sticky .wrap must stay one screen tall, so they are left out of growing */
+@media (min-width: 640px) {
+  main > :is(section, .section):not(.hero, .section--hero, [data-moment]), footer.closing {
     height: auto; min-height: calc(var(--h, 1) * 100vh); min-height: calc(var(--h, 1) * 100svh);
   }
   /* the section is a column and its .wrap takes all of it, so a .fill (a photograph, a frame) still
      grows to the section's foot (a min-height percentage would not resolve, leaving it at its least) */
   /* :where() keeps it at no weight, so a page's own phone- or tablet-only hiding (section.desk-only { display: none }) wins */
-  :where(main > :is(section, .section):not(.hero, .section--hero), footer.closing) { display: flex; flex-direction: column; }
-  main > :is(section, .section):not(.hero, .section--hero) > :is(.wrap, .container), footer.closing > .wrap { flex: 1 0 auto; height: auto; min-height: 0; }
+  :where(main > :is(section, .section):not(.hero, .section--hero, [data-moment]), footer.closing) { display: flex; flex-direction: column; }
+  main > :is(section, .section):not(.hero, .section--hero, [data-moment]) > :is(.wrap, .container), footer.closing > .wrap { flex: 1 0 auto; height: auto; min-height: 0; }
 }
 /* a phone: lvh (the screen with its bars hidden) for every section but the hero; --hm when stacking
    makes the content taller than the desktop count */

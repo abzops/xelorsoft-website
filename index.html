@@ -26,7 +26,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://xelorsoft.com/#website","name":"Xelorsoft","alternateName":["Xelor Soft","XelorSoft","xelorsoft.com"],"url":"https://xelorsoft.com/","inLanguage":"en","publisher":{"@id":"https://xelorsoft.com/#organization"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need full specs to start?","acceptedAnswer":{"@type":"Answer","text":"No. Tell us your goal, who it is for and what is hard today."}},{"@type":"Question","name":"Can we start with a small website or app?","acceptedAnswer":{"@type":"Answer","text":"Yes. One workflow, a landing page or a small app is a good start."}},{"@type":"Question","name":"How is the price of a project set?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope and the integrations. We agree the price with you before work starts."}},{"@type":"Question","name":"How long do software projects take?","acceptedAnswer":{"@type":"Answer","text":"We set the dates together. Review rounds, content and the services you connect to all shape the plan."}},{"@type":"Question","name":"Can XS Connect reply in Malayalam?","acceptedAnswer":{"@type":"Answer","text":"Yes. It asks each customer for English or Malayalam and replies in that language."}},{"@type":"Question","name":"What support do you give after launch?","acceptedAnswer":{"@type":"Answer","text":"Hosting, access and fixes are written into the project agreement."}}]}</script>
 <link rel="preload" href="/assets/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/system.css">
+<link rel="stylesheet" href="/assets/system.css?v=3">
 <link rel="stylesheet" href="/assets/ui/cards.css">
 <link rel="stylesheet" href="/assets/motion/motion.css">
 <link rel="stylesheet" href="/assets/backgrounds/backgrounds.css">
@@ -155,12 +155,16 @@
 
   /* products section: four equal cards, new ones badged */
   .prod-card { display: flex; flex-direction: column; }
-  .prod-card h3 .badge { margin-left: 8px; }
-  .prod-card .card__points { margin-bottom: 24px; }
-  .prod-card__links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 28px; }
+  .prod-card h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .prod-card .card__points li { padding: 10px 0; font-size: 15px; }
+  .prod-card .card__points { margin: 16px 0 20px; }
+  .prod-card__links { margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+  .prod-card__links .card__link { min-height: 44px; display: inline-flex; align-items: center; align-self: flex-start; }
+  .prod-card__btn { width: 100%; justify-content: center; }
   .tag-new { font-style: normal; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--action, #171719); color: var(--action-ink, #f6f6f4); vertical-align: 2px; margin-left: 4px; }
   .hero__text > .hero-notice { margin: 0 0 20px; }
   .hero-notice .link { font-weight: 500; min-height: 0; }
+  @media (min-width: 640px) and (max-height: 800px) { .hero__proof { display: none; } }
 </style>
 </head>
 <body>
@@ -265,29 +269,29 @@
           <p class="t-lead">Each app runs in the browser on a phone, tablet or laptop, with nothing to install.</p>
         </div>
         <div class="grid">
-          <article class="card prod-card span-6">
+          <article class="card prod-card span-3">
             <h3>XS Salon <span class="badge">New</span></h3>
-            <p>Salon software with a stylist calendar, an online booking link and billing with optional GST.</p>
-            <ul class="card__points"><li>Stylist calendar and online booking</li><li>Bills with split and part payments</li><li>Reports and staff logins</li></ul>
-            <div class="prod-card__links"><a class="card__link" href="/salon-software/">See XS Salon <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://salon.xelorsoft.com/">Start 14 days free <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <p>Calendar, online booking and billing for salons.</p>
+            <ul class="card__points"><li>Stylist calendar</li><li>Online booking link</li><li>Bills with optional GST</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/salon-software/">See XS Salon <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--primary prod-card__btn" href="https://salon.xelorsoft.com/">Try 14 days free</a></div>
           </article>
-          <article class="card prod-card span-6">
+          <article class="card prod-card span-3">
             <h3>XS Arena <span class="badge">New</span></h3>
-            <p>Live floor, session timers and billing for snooker, pool, PS5 and RC track centres.</p>
-            <ul class="card__points"><li>Every table, console and track on one screen</li><li>Timers that keep running if the internet drops</li><li>Time and snacks on one bill</li></ul>
-            <div class="prod-card__links"><a class="card__link" href="/game-centre-software/">See XS Arena <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="mailto:support@xelorsoft.com?subject=XS%20Arena%20demo">Ask for a demo <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <p>Timers and billing for snooker, PS5 and RC centres.</p>
+            <ul class="card__points"><li>Live floor of every table</li><li>Timers that work offline</li><li>Time and snacks on one bill</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/game-centre-software/">See XS Arena <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--primary prod-card__btn" href="mailto:support@xelorsoft.com?subject=XS%20Arena%20demo">Get a demo</a></div>
           </article>
-          <article class="card prod-card span-6">
+          <article class="card prod-card span-3">
             <h3>XS Gym</h3>
-            <p>Members, renewals, fees and expenses for gyms and studios, with WhatsApp reminders.</p>
-            <ul class="card__points"><li>Renewals and dues on one screen</li><li>WhatsApp reminders in English or Malayalam</li><li>Voice assistant that asks before it saves</li></ul>
-            <div class="prod-card__links"><a class="card__link" href="/gym-management-software/">See XS Gym <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://gym.xelorsoft.com/">Open XS Gym <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <p>Members, renewals and fees for gyms and studios.</p>
+            <ul class="card__points"><li>Renewals and dues list</li><li>WhatsApp reminders</li><li>Voice assistant</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/gym-management-software/">See XS Gym <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--primary prod-card__btn" href="https://gym.xelorsoft.com/">Open XS Gym</a></div>
           </article>
-          <article class="card prod-card span-6">
+          <article class="card prod-card span-3">
             <h3>XS Connect</h3>
-            <p>WhatsApp, Instagram and Facebook messages in one inbox, answered by AI.</p>
-            <ul class="card__points"><li>AI replies in English or Malayalam</li><li>Leads and orders kept with each chat</li><li>Unclear chats handed to your team</li></ul>
-            <div class="prod-card__links"><a class="card__link" href="/whatsapp-crm/">See XS Connect <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://xsconnect.xelorsoft.com/">Open XS Connect <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            <p>WhatsApp, Instagram and Facebook in one AI inbox.</p>
+            <ul class="card__points"><li>AI replies, day and night</li><li>Leads and orders per chat</li><li>Hand-off to your team</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/whatsapp-crm/">See XS Connect <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn btn--primary prod-card__btn" href="https://xsconnect.xelorsoft.com/">Open XS Connect</a></div>
           </article>
         </div>
       </div>
