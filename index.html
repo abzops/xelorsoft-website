@@ -152,6 +152,15 @@
 
   .d-row img.d-ic { width: 32px; height: 32px; object-fit: contain; padding: 6px; border-radius: 8px; background: #fff; }
   .ml { font-family: "Noto Sans Malayalam", "Manjari", var(--font-text); }
+
+  /* products section: four equal cards, new ones badged */
+  .prod-card { display: flex; flex-direction: column; }
+  .prod-card h3 .badge { margin-left: 8px; }
+  .prod-card .card__points { margin-bottom: 24px; }
+  .prod-card__links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 28px; }
+  .tag-new { font-style: normal; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--action, #171719); color: var(--action-ink, #f6f6f4); vertical-align: 2px; margin-left: 4px; }
+  .hero__text > .hero-notice { margin: 0 0 20px; }
+  .hero-notice .link { font-weight: 500; min-height: 0; }
 </style>
 </head>
 <body>
@@ -166,15 +175,15 @@
     <a class="nav__logo" href="#top" aria-label="Xelorsoft home"><img src="/assets/logo-ink.svg" alt="Xelorsoft" width="100" height="28"></a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
-        <a class="nav__link" href="#connect">Products <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav__link" href="#products">Products <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
               <p class="t-label">Our products</p>
               <a href="/whatsapp-crm/">XS Connect<span>WhatsApp leads in one inbox</span></a>
               <a href="/gym-management-software/">XS Gym<span>Gym management software</span></a>
-              <a href="/salon-software/">XS Salon<span>Salon booking and GST billing</span></a>
-              <a href="/game-centre-software/">XS Arena<span>Snooker, PS5 and RC centres</span></a>
+              <a href="/salon-software/">XS Salon <em class="tag-new">New</em><span>Salon booking and billing</span></a>
+              <a href="/game-centre-software/">XS Arena <em class="tag-new">New</em><span>Snooker, PS5 and RC centres</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">Client work</p>
@@ -209,12 +218,13 @@
   <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
-        <h1 id="hero-h">Software and AI tools for growing businesses</h1>
-        <p class="hero__lead">We build apps, websites and AI assistants for startups and small businesses, and run four products of our own: XS Connect, XS Gym, XS Salon and XS Arena.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="#start">Start a project<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#connect">See XS Connect</a></div>
+        <p class="hero-notice"><b>New</b> · XS Salon and XS Arena are here. <a class="link" href="#products">See them</a></p>
+        <h1 id="hero-h">Software for gyms, salons, game centres and sales teams</h1>
+        <p class="hero__lead">Four apps that run in the browser on any phone, tablet or laptop: XS Gym, XS Salon, XS Arena and XS Connect. We also build custom software, websites and AI tools for clients.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="#products">See the products<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#start">Start a project</a></div>
         <p class="hero__proof">Built and supported by the two founders.</p>
       </div>
-      <div class="hero__art span-6 start-7" role="img" aria-label="XS Connect's inbox with chats from WhatsApp, Instagram and Facebook, and a lead handed to the team">
+      <div class="hero__art span-6 start-7" role="img" aria-label="XS Connect's inbox with chats from WhatsApp, Instagram and Facebook, beside a switcher listing all four Xelorsoft apps">
         <div class="ly-piece ly-piece--main d-win" aria-hidden="true">
           <div class="d-win__bar"><span class="d-win__dots"><i></i><i></i><i></i></span><span>XS Connect · Inbox</span></div>
           <div class="d-win__body">
@@ -237,13 +247,51 @@
           </div>
         </div>
         <div class="ly-piece ly-piece--note d-card" aria-hidden="true" data-ly-steps="700">
-          <div class="d-card__row"><h5>Lead from Instagram</h5><span class="d-chip" data-step data-step-at="4">Handed over</span></div>
-          <div class="d-note__line" data-step><i>✓</i><span>Chose <b>Malayalam</b></span></div>
-          <div class="d-note__line" data-step><i>✓</i><span>Quote for <b>20 shirts</b> drafted</span></div>
-          <div class="d-note__line" data-step><i class="warn">!</i><span>Sent to your team at 16:02</span></div>
+          <div class="d-card__row"><h5>Xelorsoft apps</h5></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>XS Connect</b> · Inbox</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>XS Gym</b> · Members</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>XS Salon</b> · Calendar</span><span class="d-chip">New</span></div>
+          <div class="d-note__line" data-step><i>✓</i><span><b>XS Arena</b> · Live floor</span><span class="d-chip">New</span></div>
         </div>
       </div>
     </div></div>
+  </section>
+
+  <section class="section" id="products" aria-labelledby="products-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head">
+          <h2 id="products-h">Our products</h2>
+          <p class="t-lead">Each app runs in the browser on a phone, tablet or laptop, with nothing to install.</p>
+        </div>
+        <div class="grid">
+          <article class="card prod-card span-6">
+            <h3>XS Salon <span class="badge">New</span></h3>
+            <p>Salon software with a stylist calendar, an online booking link and billing with optional GST.</p>
+            <ul class="card__points"><li>Stylist calendar and online booking</li><li>Bills with split and part payments</li><li>Reports and staff logins</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/salon-software/">See XS Salon <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://salon.xelorsoft.com/">Start 14 days free <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+          <article class="card prod-card span-6">
+            <h3>XS Arena <span class="badge">New</span></h3>
+            <p>Live floor, session timers and billing for snooker, pool, PS5 and RC track centres.</p>
+            <ul class="card__points"><li>Every table, console and track on one screen</li><li>Timers that keep running if the internet drops</li><li>Time and snacks on one bill</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/game-centre-software/">See XS Arena <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="mailto:support@xelorsoft.com?subject=XS%20Arena%20demo">Ask for a demo <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+          <article class="card prod-card span-6">
+            <h3>XS Gym</h3>
+            <p>Members, renewals, fees and expenses for gyms and studios, with WhatsApp reminders.</p>
+            <ul class="card__points"><li>Renewals and dues on one screen</li><li>WhatsApp reminders in English or Malayalam</li><li>Voice assistant that asks before it saves</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/gym-management-software/">See XS Gym <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://gym.xelorsoft.com/">Open XS Gym <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+          <article class="card prod-card span-6">
+            <h3>XS Connect</h3>
+            <p>WhatsApp, Instagram and Facebook messages in one inbox, answered by AI.</p>
+            <ul class="card__points"><li>AI replies in English or Malayalam</li><li>Leads and orders kept with each chat</li><li>Unclear chats handed to your team</li></ul>
+            <div class="prod-card__links"><a class="card__link" href="/whatsapp-crm/">See XS Connect <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="card__link" href="https://xsconnect.xelorsoft.com/">Open XS Connect <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h8M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          </article>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="connect" aria-labelledby="connect-h">
