@@ -2,7 +2,7 @@
 
 Live: https://xelorsoft.com/ (GitHub Pages behind Cloudflare; www redirects to the apex; GitHub Pages copy at https://abzops.github.io/xelorsoft-website/)
 
-The studio site: custom software, AI tools and websites for Kerala businesses, plus the studio's own products, XS Connect and XS Gym.
+Xelorsoft's company site: SaaS products (XS Gym, XS Salon, XS Connect, XS Arena) plus custom software, AI tools and websites.
 
 Built with [taste-skill](https://github.com/Leonxlnx/taste-skill) (non-AI-looking website rules). The product UI in the page (inbox, members list, notes, checklists) is real HTML, not screenshots.
 
